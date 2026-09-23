@@ -44,7 +44,8 @@ function App() {
         license: repo.license ? repo.license.spdx_id : "No license",
         forks: repo.forks,
         watchers: repo.watchers,
-        last_update: repo.updated_at
+        last_update: repo.updated_at,
+        html_url:repo.html_url,
         };
       });
       setRepos(shapedRepos)
