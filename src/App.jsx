@@ -1,11 +1,63 @@
-// import { useState } from 'react'
+import { useState,useEffect } from 'react'
 
 import './App.css'
 
 function App() {
+  const [profile,setProfile] = useState({
+    name:"",
+    bio:"",
+    avatar:"",
+    followers:0,
+    following:0,
+    location:""
+  })
+  const [repos,setRepos] = useState([])
+
+  useEffect(()=>{
+    fetch("https://api.github.com/users/github")
+    .then((response) => response.json())
+    .then((data) => {
+      setProfile({
+        name:data.name,
+        bio:data.bio,
+        avatar:data.avatar_url,
+        followers:data.followers,
+        following:data.following,
+        location:data.location
+      });
+      
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  },[])
+
+  useEffect(()=>{
+    fetch("https://api.github.com/users/github/repos")
+    .then((response) => response.json())
+    .then((data) => {
+      const shapedRepos = data.map(repo =>{
+        return {
+        id: repo.id,
+        name: repo.name,
+        description: repo.description,
+        license: repo.license ? repo.license.spdx_id : "No license",
+        forks: repo.forks,
+        watchers: repo.watchers,
+        last_update: repo.updated_at
+        };
+      });
+      setRepos(shapedRepos)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  },[])
+
+  console.log(repos)
   return (
     <>
-      
+    
     </>
   )
 }
