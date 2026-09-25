@@ -32,6 +32,12 @@ body {
   line-height: 1.5;
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  width:100vw;
+  justify-content: center;
+  font-family: "Be Vietnam Pro", "Sora","DM Sans",sans-serif;
+
 }
 
 /* 6. Improve media defaults */
