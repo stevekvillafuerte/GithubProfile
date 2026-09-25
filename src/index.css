@@ -33,7 +33,7 @@ body {
   /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
   font-family: "Be Vietnam Pro", "Sora","DM Sans",sans-serif;
-
+  width: 100%;
 }
 
 /* 6. Improve media defaults */

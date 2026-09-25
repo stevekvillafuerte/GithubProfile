@@ -1,5 +1,5 @@
-import {useState} from 'react'
-import RepoCard from './components/RepoCard'
+import {useEffect, useState} from 'react'
+import MainContainer from './components/MainContainer'
 import './App.css'
 import HeaderSearch from './components/HeaderSearch'
 function App() {
@@ -58,15 +58,53 @@ function App() {
     });
   }
   
+  useEffect(()=>{
+    fetch("https://api.github.com/users/github/repos")
+    .then((response) => response.json())
+    .then((data) => {
+      const shapedRepos = data.map(repo =>{
+        return {
+          id: repo.id,
+          name: repo.name,
+          description: repo.description,
+          license: repo.license ? repo.license.spdx_id : null,
+          forks: repo.forks,
+          watchers: repo.watchers,
+          last_update: repo.updated_at,
+          html_url:repo.html_url,
+        };
+      });
+      setRepos(shapedRepos)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  })
   
+  useEffect(()=>{
+    fetch("https://api.github.com/users/github")
+    .then((response) => response.json())
+    .then((data) => {
+      setProfile({
+        name:data.name,
+        bio:data.bio,
+        avatar:data.avatar_url,
+        followers:data.followers,
+        following:data.following,
+        location:data.location
+      });
+      
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
+  })
   return (
     <div className="App">
       <HeaderSearch userName={userName} setUserName={setUserName} onSubmit={handleSearch}/>
 
-      {/* {repos.map(repo=>{
-        return <RepoCard key={repo.id}repoData={repo}/>
-      })} */}
+      <MainContainer repos={repos} profile={profile}/>  
     </div>
   )
 }

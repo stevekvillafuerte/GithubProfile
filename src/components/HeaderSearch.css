@@ -6,12 +6,12 @@ form{
     background-image: url(../assets/hero-image-github-profile.jpg);
     background-repeat: no-repeat;
     height:15rem;
-    width:100vw;
+    width:100%;
 
 }
 
 input{
-    width:30rem;
+    width:min(30rem, 70vw);
     height:3rem;
     background-color: var(--container-background-color);
     border:none;
