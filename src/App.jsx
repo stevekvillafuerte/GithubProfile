@@ -1,7 +1,7 @@
-import { useState,useEffect } from 'react'
+import {useState} from 'react'
 import RepoCard from './components/RepoCard'
 import './App.css'
-
+import HeaderSearch from './components/HeaderSearch'
 function App() {
   const [profile,setProfile] = useState({
     name:"",
@@ -12,6 +12,7 @@ function App() {
     location:""
   })
   const [repos,setRepos] = useState([])
+  const [userName,setUserName] = useState("")
 
 
   function handleSearch(e){
@@ -61,9 +62,11 @@ function App() {
 
   return (
     <div className="App">
-      {repos.map(repo=>{
+      <HeaderSearch userName={userName} setUserName={setUserName} onSubmit={handleSearch}/>
+
+      {/* {repos.map(repo=>{
         return <RepoCard key={repo.id}repoData={repo}/>
-      })}
+      })} */}
     </div>
   )
 }

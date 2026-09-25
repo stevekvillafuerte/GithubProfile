@@ -1,0 +1,36 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../assets/hero-image-github-profile.jpg);
+    background-repeat: no-repeat;
+    height:15rem;
+    width:100vw;
+
+}
+
+input{
+    width:30rem;
+    height:3rem;
+    background-color: var(--container-background-color);
+    border:none;
+    color:var(--text-color)
+}
+input:focus{
+    outline: none;
+}
+
+input::placeholder{
+    color:var(--small-text-color)
+}
+.inputContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
+    position: relative;
+    border-radius: 5px;
+    background-color: var(--container-background-color);
+    gap:1rem
+}
