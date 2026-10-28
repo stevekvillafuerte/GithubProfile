@@ -1,19 +1,27 @@
-# React + Vite
+# GitHub Profile
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React app built with Vite that displays a GitHub user's profile and repositories using the GitHub API.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+Vite prints a local URL to open in your browser. To create and preview a production build:
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+```bash
+npm run build
+npm run preview
+```
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## Deploy from GitHub
 
-## Expanding the ESLint configuration
+This repository includes a GitHub Actions workflow that builds and deploys the site to GitHub Pages whenever changes are pushed to `main`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. In the repository on GitHub, open **Settings → Pages**.
+2. Set **Build and deployment → Source** to **GitHub Actions**.
+3. Push a commit to `main` (or manually run the **Deploy to GitHub Pages** workflow from the **Actions** tab).
+
+After the workflow succeeds, the site is available at `https://stevekvillafuerte.github.io/GithubProfile/`.
