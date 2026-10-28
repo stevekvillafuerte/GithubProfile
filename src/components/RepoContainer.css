@@ -1,5 +1,15 @@
-.RepoContainer{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap:20px;
+.RepoContainer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 30px;
+  margin-top: 28px;
+}
+
+@media (max-width: 700px) {
+  .RepoContainer {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
 }

@@ -1,3 +1,4 @@
-.App{
-    color:var(--text-color)
+.App {
+  min-height: 100vh;
+  color: var(--text-color);
 }

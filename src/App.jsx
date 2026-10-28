@@ -12,12 +12,14 @@ function App() {
     location:""
   })
   const [repos,setRepos] = useState([])
-  const [userName,setUserName] = useState("")
+  const [userName,setUserName] = useState("github")
+  const [showAllRepos,setShowAllRepos] = useState(false)
 
 
   function handleSearch(e){
     e.preventDefault();
-    fetch("https://api.github.com/users/github")
+    setShowAllRepos(false)
+    fetch("https://api.github.com/users/{}".replace("{}",userName))
     .then((response) => response.json())
     .then((data) => {
       setProfile({
@@ -36,7 +38,7 @@ function App() {
 
 
   
-    fetch("https://api.github.com/users/github/repos")
+    fetch("https://api.github.com/users/{}/repos".replace("{}",userName))
     .then((response) => response.json())
     .then((data) => {
       const shapedRepos = data.map(repo =>{
@@ -79,9 +81,7 @@ function App() {
     .catch((error) => {
       console.log(error);
     });
-  })
-  
-  useEffect(()=>{
+
     fetch("https://api.github.com/users/github")
     .then((response) => response.json())
     .then((data) => {
@@ -93,18 +93,21 @@ function App() {
         following:data.following,
         location:data.location
       });
-      
     })
     .catch((error) => {
       console.log(error);
     });
-
-  })
+  }, [])
   return (
     <div className="App">
       <HeaderSearch userName={userName} setUserName={setUserName} onSubmit={handleSearch}/>
 
-      <MainContainer repos={repos} profile={profile}/>  
+      <MainContainer
+        repos={repos}
+        profile={profile}
+        showAllRepos={showAllRepos}
+        onToggleRepos={() => setShowAllRepos(!showAllRepos)}
+      />
     </div>
   )
 }

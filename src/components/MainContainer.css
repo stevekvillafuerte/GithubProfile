@@ -1,4 +1,27 @@
-.container{
-    padding:2rem 5rem;
-    
+.container {
+  width: min(100%, 1014px);
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+.repositoriesToggle {
+  display: block;
+  margin: 24px auto 0;
+  padding: 8px 12px;
+  border: 0;
+  color: var(--text-color);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.repositoriesToggle:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.repositoriesToggle:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: 3px;
+  border-radius: 4px;
 }

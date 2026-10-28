@@ -1,9 +1,11 @@
 import RepoCard from './RepoCard'
 import './RepoContainer.css'
-function RepoContainer({repos}){
+function RepoContainer({repos,showAllRepos}){
+    const visibleRepos = showAllRepos ? repos : repos.slice(0, 4)
+
     return(
        <div className='RepoContainer'>
-        {repos.map(repo=>{
+        {visibleRepos.map(repo=>{
             return <RepoCard key={repo.id} repoData={repo}/>
         })}
       </div>

@@ -1,32 +1,65 @@
-.repoCard{
-    background: linear-gradient(95deg, #111729 3%, #1d1b48 99.61%);
-    border-radius: 5px;
-    padding:0.75rem ;
-    width:100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap:0.25rem;
-    font-size: var(--body-text-size);
-    min-width: 0;
-}
-.extras{
-    display: flex;
-    gap:0.5rem; 
-    align-items: center;
+.repoCard {
+  display: flex;
+  min-width: 0;
+  min-height: 132px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+  border-radius: 12px;
+  background: linear-gradient(110deg, var(--tags-color) 3%, var(--purple) 100%);
+  font-size: var(--body-text-size);
 }
 
-.extras > span{
-    display: flex;
-    gap:0.25rem;
-}
-p{
-    color:var(--small-text-color)
+.repoTitle {
+  color: var(--text-color);
+  font-size: var(--title-text-size);
+  font-weight: 600;
 }
 
-#lastUpdate{
-    font-size: var(--small-text-size);
+.repoDescription {
+  color: var(--small-text-color);
 }
-.repoCard> h1{
-    font-size: var(--title-text-size);
+
+.extras {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.extras > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.extras img {
+  width: 18px;
+  height: 18px;
+}
+
+.extras p {
+  color: var(--small-text-color);
+  white-space: nowrap;
+}
+
+#lastUpdate {
+  margin-left: 8px;
+  font-size: var(--small-text-size);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .repoCard {
+    padding: 16px;
+  }
+
+  .extras {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #lastUpdate {
+    margin-left: 0;
+  }
 }

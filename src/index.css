@@ -1,13 +1,13 @@
 :root {
-  --container-background-color: #20293A;
-  --tags-color:#111729;
-  --small-text-color:#97A3B6;
-  --text-color:#CDD5E0;
-  --purple:#1D1B48;
-  --small-text-size:0.75rem;
-  --body-text-size:1rem;
-  --title-text-size:1.25rem;
-  --large-text-size:2rem;
+  --container-background-color: #20293a;
+  --tags-color: #111729;
+  --small-text-color: #97a3b6;
+  --text-color: #cdd5e0;
+  --purple: #1d1b48;
+  --small-text-size: 0.75rem;
+  --body-text-size: 1rem;
+  --title-text-size: 1.125rem;
+  --large-text-size: 2rem;
 }
 
 /* 1. Use a more-intuitive box-sizing model */
@@ -28,41 +28,37 @@
 }
 
 body {
-  /* 4. Increase line-height */
   line-height: 1.5;
-  /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
   font-family: "Be Vietnam Pro", "Sora","DM Sans",sans-serif;
-  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--text-color);
+  background-color: var(--container-background-color);
 }
 
-/* 6. Improve media defaults */
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
 
-/* 7. Inherit fonts for form controls */
 input, button, textarea, select {
   font: inherit;
 }
 
-/* 8. Avoid text overflows */
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
-/* 9. Improve line wrapping */
 p {
   text-wrap: pretty;
 }
+
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
-/*
-  10. Create a root stacking context
-*/
 #root, #__next {
   isolation: isolate;
+  min-height: 100vh;
 }
